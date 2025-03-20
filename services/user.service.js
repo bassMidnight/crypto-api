@@ -3,10 +3,6 @@ const { User } = require("../models");
 
 exports.FindAllUsers = async (search = "", offset, size) => {
     try {
-
-        console.log("search : ", search);
-        console.log("offset : ", offset);
-        console.log("size : ", size);
         
         const users = await User.findAll(
             {

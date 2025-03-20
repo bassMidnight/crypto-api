@@ -1,4 +1,4 @@
-const { FindAllUsers, FindUserByPk } = require("../services/user.service");
+const { FindAllUsers, FindUserByPk, UpdateUser } = require("../services/user.service");
 
 const dateFormat = require("../utils/dateFormat");
 
@@ -28,13 +28,14 @@ exports.GetAllUsers = async (req, res) => {
 exports.approveKycUser = async (req, res) => {
   try {
     const { id } = req.params;
+    
     let user = await FindUserByPk(id);
     if(!user || user.length === 0) return res.status(400).json({ message: "User not found" });
     
     user = await UpdateUser(id, { kyc_status: true });
-    if(!user) return res.status(500).json({ message: "Error updating user" });
+    if(!user) return res.status(500).json({ message: "Error approved user" });
     
-    return res.status(200).json({ message: "User updated successfully" });
+    return res.status(200).json({ message: "User approved successfully" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
