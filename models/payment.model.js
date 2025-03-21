@@ -23,12 +23,12 @@ const Payment = sequelize.define(
     },
     amount: { type: DataTypes.DECIMAL(18, 2), allowNull: false },
     paymentMethod: {
-      type: DataTypes.ENUM("BANK_TRANSFER", "CREDIT_CARD", "CRYPTO_TRANSFER"),
+      type: DataTypes.ENUM("BANK_TRANSFER", "CREDIT_CARD", "PROMPPAY", "PAYPAL"),
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("PENDING", "COMPLETED", "FAILED"),
-      defaultValue: "PENDING",
+      type: DataTypes.ENUM("Withdraw", "Desposit"),
+      allowNull: false,
     },
   },
   { 

@@ -11,26 +11,6 @@ exports.FindAllCurrencies = async (offset, limit) => {
     }
 }
 
-exports.UpdateCurrency = async (id, data) => {
-    try {
-        const currency = await Currency.update(data, { where: { id } });
-        return currency;
-    } catch (error) {
-        console.error("Error updating currency:", error.message);
-        return null;
-    }
-}
-
-exports.DeleteCurrency = async (id) => {
-    try {
-        const currency = await Currency.destroy({ where: { id } });
-        return currency;
-    } catch (error) {
-        console.error("Error deleting currency:", error.message);
-        return null;
-    }
-}
-
 exports.CreateCurrency = async (name, symbol) => {
     try {
         const currency = await Currency.create({ name, symbol });
@@ -47,6 +27,16 @@ exports.UpdateCurrency = async (id, data) => {
         return currency;
     } catch (error) {
         console.error("Error updating currency:", error.message);
+        return null;
+    }
+}
+
+exports.DeleteCurrency = async (id) => {
+    try {
+        const currency = await Currency.destroy({ where: { id } });
+        return currency;
+    } catch (error) {
+        console.error("Error deleting currency:", error.message);
         return null;
     }
 }
