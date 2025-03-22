@@ -11,7 +11,7 @@
 7. run 
 ```bash
   npm i 
-  command npm run start
+  npm run start
 ```
 
  - [ER Diagram & Manual system & API Documents](https://docs.google.com/document/d/1_AZfaRrQCXzTqFU9tVotQ4BU2sEeJ4EwIaYH5DDA1zY/edit?usp=sharing)
