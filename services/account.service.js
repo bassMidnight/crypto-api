@@ -1,4 +1,4 @@
-const { Account, Currency, FiatCurrency } = require("../models");
+const { Account, Currency, FiatCurrency, User } = require("../models");
 
 exports.FindAllAccounts = async (search, offset, limit) => {
   try {
@@ -7,6 +7,9 @@ exports.FindAllAccounts = async (search, offset, limit) => {
     const accounts = await Account.findAll({
       where: whereClause,
       include : [
+        {
+          model: User,
+        },
         {
           model: Currency,
         },

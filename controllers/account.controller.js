@@ -26,6 +26,8 @@ exports.GetAllAccounts = async (req, res) => {
     let result = accounts.map((account) => ({
       id: account.id,
       userId: account.userId,
+      username: account.User?.dataValues.username || null,
+      email: account.User?.dataValues.email || null,
       currencyId: account.currencyId,
       currencyName: account.Currency?.dataValues.name || null,
       currencySymbol: account.Currency?.dataValues.symbol || null,
