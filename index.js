@@ -7,6 +7,9 @@ const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
 const accountRoutes = require("./routes/account.routes");
 const currencyRoutes = require("./routes/currency.routes");
+const fiatcurrencyRoutes = require("./routes/fiatcurrency.routes");
+const orderRoutes = require("./routes/order.routes")
+const transectionRoutes = require("./routes/transection.routes")
 
 const { syncDatabase } = require("./models");
 
@@ -21,6 +24,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/account", accountRoutes);
 app.use("/api/currency", currencyRoutes);
+app.use("/api/fiatcurrency", fiatcurrencyRoutes);
+app.use("/api/order", orderRoutes)
+app.use("/api/transection", transectionRoutes)
+
 
 // Start Server
 const PORT = process.env.PORT || 5000;

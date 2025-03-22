@@ -1,0 +1,970 @@
+{
+	"info": {
+		"_postman_id": "0e71aaad-1737-48fa-b073-91710882bbe0",
+		"name": "CRYPTO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23467281",
+		"_collection_link": "https://orange-sunset-775443.postman.co/workspace/Crypto-API~3a4799b4-63eb-45bb-8fec-8faa76d0c25f/collection/23467281-0e71aaad-1737-48fa-b073-91710882bbe0?action=share&source=collection_link&creator=23467281"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "TEST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Atsawin\",\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/auth",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Atsawin\",\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/auth/register",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/auth/login",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "TEST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Atsawin\",\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/user/test",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Atsawin\",\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/user/?search=&page=1&size=10",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user approve",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Atsawin\",\r\n    \"email\" : \"bass12midnight@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/user/approve/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"user",
+								"approve",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "29828982-64ed-4424-b92d-9e1ed69f38b4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACCOUNT",
+			"item": [
+				{
+					"name": "TEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/account/test",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{docker}}/account/?page&limit",
+							"host": [
+								"{{docker}}"
+							],
+							"path": [
+								"account",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\" : \"29aba3bf-7ccd-490a-9c2b-d4a33b98004d\",\r\n    // \"fiatCurrencyId\": \"ced106b7-a141-4fe8-bcb5-d213d8a26548\",\r\n    \"currencyId\": \"8ee2f96e-433f-4691-9dd8-a02d6a0b0b7a\",\r\n    \"balance\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/account/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"101fe92b-9c11-4bbf-8816-f63ae14be685\",\r\n    \"userId\" : \"b1aebfb8-f2ae-4bb2-b755-cf6840c3cfde\",\r\n    \"fiatCurrencyId\": \"327b0424-e64b-4bc7-b7e6-7b0bd0ac07fe\",\r\n    \"balance\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/account/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/account/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e22695af-de52-4615-bc40-cab694b718d2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DespositAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"4aeae8db-b255-47c7-a793-e51736c9c09f\",\r\n    \"amount\" : 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/account/deposit/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								"deposit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WithdrawAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"101fe92b-9c11-4bbf-8816-f63ae14be685\",\r\n    \"amount\" : 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/account/withdraw/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								"withdraw",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TransferAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiverId\" : \"55d6aa95-211b-4fab-bfe3-4bd5fee4c401\",\r\n    \"senderId\" : \"55d6aa95-211b-4fab-bfe3-4bd5fee4c401\",\r\n    \"amount\" : \"50000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/account/transfer/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"account",
+								"transfer",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CURRENCY",
+			"item": [
+				{
+					"name": "TEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/currency/test",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/currency?page=1&size=10",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"name\" : \"Ethereum\",\r\n//     \"symbol\" : \"ETH\"\r\n// }\r\n// {\r\n//     \"name\" : \"Bitcoin\",\r\n//     \"symbol\" : \"BTC\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/currency/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Bitcoin2\",\r\n    \"symbol\" : \"BTC 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/currency/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e8fd781c-6aaa-4f2d-a3e4-6e37468e393f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"\",\r\n    \"symbol\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/currency/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7380c08c-56cf-48cc-bfbe-33a0bf76c114"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FIATCURRENCY",
+			"item": [
+				{
+					"name": "TEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/currency/test",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"currency",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiatcurrency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/fiatcurrency?page=1&size=10",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"fiatcurrency"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiatcurrency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Bath\",\r\n    \"symbol\" : \"฿\"\r\n}\r\n// {\r\n//     \"name\" : \"Dollar\",\r\n//     \"symbol\" : \"$\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/fiatcurrency/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"fiatcurrency",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fiatcurrency",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"\",\r\n    \"symbol\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/fiatcurrency/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"fiatcurrency",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BuySellOrder",
+			"item": [
+				{
+					"name": "GetAllOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/order/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/order/user/55d6aa95-211b-4fab-bfe3-4bd5fee4c401",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								"user",
+								"55d6aa95-211b-4fab-bfe3-4bd5fee4c401"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountOrder Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/order/:id/cancel",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								":id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3bf9f2d4-6ccf-456a-ad6a-168379cde48b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SellOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\" : \"55d6aa95-211b-4fab-bfe3-4bd5fee4c401\",\r\n    \"fiatCurrencyId\" : \"ced106b7-a141-4fe8-bcb5-d213d8a26548\",\r\n    \"price\" : \"1000\",\r\n    \"quantity\" : \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/order/sell/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								"sell",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuyOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\" : \"4aeae8db-b255-47c7-a793-e51736c9c09f\",\r\n    \"currencyId\" : \"8ee2f96e-433f-4691-9dd8-a02d6a0b0b7a\",\r\n    \"price\" : \"1000\",\r\n    \"quantity\" : \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/order/buy/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								"buy",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuyOrder Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\" : \"4aeae8db-b255-47c7-a793-e51736c9c09f\",\r\n    \"currencyId\" : \"8ee2f96e-433f-4691-9dd8-a02d6a0b0b7a\",\r\n    \"price\" : \"1000\",\r\n    \"quantity\" : \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/order/match/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"order",
+								"match",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transections",
+			"item": [
+				{
+					"name": "GetAllTransection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTransectionByuser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/user/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTransectionByAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/account/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								"account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "55d6aa95-211b-4fab-bfe3-4bd5fee4c401"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAllTransection",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTransectionByUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/user/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTransectionByAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/transection/account/:id",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"transection",
+								"account",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

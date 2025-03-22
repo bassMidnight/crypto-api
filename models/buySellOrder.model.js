@@ -2,6 +2,8 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 const User = require("./user.model");
 const Currency = require("./currency.model");
+const Account = require("./account.model");
+const FiatCurrency = require("./fiatCurrency.model");
 
 const BuySellOrder = sequelize.define(
   "BuySellOrder",
@@ -11,14 +13,9 @@ const BuySellOrder = sequelize.define(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    userId: {
+    accountId: {
       type: DataTypes.UUID,
-      references: { model: User, key: "id" },
-      allowNull: false,
-    },
-    currencyId: {
-      type: DataTypes.UUID,
-      references: { model: Currency, key: "id" },
+      references: { model: Account, key: "id" },
       allowNull: false,
     },
     orderType: { type: DataTypes.ENUM("BUY", "SELL"), allowNull: false },
@@ -28,6 +25,9 @@ const BuySellOrder = sequelize.define(
       type: DataTypes.ENUM("PENDING", "COMPLETED", "CANCELLED"),
       defaultValue: "PENDING",
     },
+    currencyId: { type: DataTypes.UUID, references: { model: Currency, key: "id" }, allowNull: false },
+    fiatCurrencyId: { type: DataTypes.UUID, references: { model: FiatCurrency, key: "id" }, allowNull: false },
+    totalAmount: { type: DataTypes.DECIMAL(18, 8), allowNull: false },
   },
   { 
     timestamps: true,
