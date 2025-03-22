@@ -38,7 +38,7 @@ exports.UpdateCurrency = async (req, res) => {
         const currency = await UpdateCurrency(id, { name, symbol });
         if(!currency) return res.status(500).json({ message: "Error updating currency" });
         
-        return res.status(200).json({ message: "Currency updated successfully", currency });
+        return res.status(200).json({ message: "Currency updated successfully" });
  
     }catch (error) {
         return res.status(500).json({ error: error.message });

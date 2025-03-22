@@ -105,7 +105,7 @@ exports.UpdateAccount = async (req, res) => {
 
     return res
       .status(200)
-      .json({ message: "Account updated successfully", account });
+      .json({ message: "Account updated successfully" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -170,12 +170,9 @@ exports.WithdrawAccount = async (req, res) => {
   try {
     const id = req.body.id;
     const amount = req.body.amount || 0;
-    const paymentMethod = req.body.paymentMethod || null;
 
     if (!id) return res.status(400).json({ message: "Id is required" });
     if (!amount) return res.status(400).json({ message: "Amount is required" });
-    if (!paymentMethod)
-      return res.status(400).json({ message: "Payment method is required" });
 
     const userAccount = await FindAccountByPk(id);
     if (!userAccount || userAccount == null)
@@ -203,7 +200,7 @@ exports.WithdrawAccount = async (req, res) => {
 
     return res
       .status(200)
-      .json({ message: "Account updated successfully", account });
+      .json({ message: "Account updated successfully" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
