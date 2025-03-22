@@ -2,6 +2,8 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 const User = require("./user.model");
 const Account = require("./account.model");
+const FiatCurrency = require("./fiatCurrency.model");
+const Currency = require("./currency.model");
 
 const Transaction = sequelize.define(
   "Transaction",
@@ -14,7 +16,7 @@ const Transaction = sequelize.define(
     senderId: {
       type: DataTypes.UUID,
       references: { model: User, key: "id" },
-      allowNull: false,
+      allowNull: true,
     },
     receiverId: {
       type: DataTypes.UUID,
@@ -34,6 +36,16 @@ const Transaction = sequelize.define(
     status: {
       type: DataTypes.ENUM("PENDING", "COMPLETED", "FAILED"),
       defaultValue: "PENDING",
+    },
+    fiatCurrencyId: {
+      type: DataTypes.UUID,
+      references: { model: FiatCurrency, key: "id" },
+      allowNull: true,
+    },
+    currencyId: {
+      type: DataTypes.UUID,
+      references: { model: Currency, key: "id" },
+      allowNull: true,
     },
   },
   { 

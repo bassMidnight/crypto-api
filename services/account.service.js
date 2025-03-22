@@ -61,3 +61,16 @@ exports.UpdateAccount = async (id, data) => {
         return null;
     }
 }
+
+exports.DeleteAccount = async (id) => {
+    try {
+        
+        const account = await Account.destroy({ where: { id } });
+        if(!account) throw new Error('Error deleting account');
+        
+        return account;
+    } catch (error) {
+        console.log("Error deleting account:", error.message);
+        return null;
+    }
+}
