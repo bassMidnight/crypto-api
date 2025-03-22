@@ -11,3 +11,4 @@
   command npm run start
 ```
 
+## POSTMAN file already in project folder 
