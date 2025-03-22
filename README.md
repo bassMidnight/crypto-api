@@ -8,7 +8,8 @@
 4. pull code in branch dev
 5. download [.env file](https://drive.google.com/file/d/1KI9QNqy53ajSj8wogLdBIHLoTN6vN7Fn/view?usp=sharing) 
 6. copy and paste .env file in project folder
-7. run 
+7. download seed file and import to database [seed file](https://drive.google.com/file/d/1fSDP8Pf6OkS5Syt-rlDwmVCNnUJNsCIM/view?usp=sharing)
+8. run 
 ```bash
   npm i 
   npm run start
