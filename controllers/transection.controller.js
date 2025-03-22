@@ -7,6 +7,8 @@ const {
   DeleteAllTransections,
 } = require("../services/transection.service");
 
+const dateFormat = require("../utils/dateFormat");
+
 exports.GetAllTransections = async (req, res) => {
   try {
     const status = req.query.status || "PENDING";
@@ -15,32 +17,67 @@ exports.GetAllTransections = async (req, res) => {
     const offset = (page - 1) * limit;
 
     const transections = await GetAllTransections(status, offset, limit);
+    
     if (!transections) throw new Error("Error retrieving transections");
 
+    const result = transections.map((transection) => ({
+      id: transection.id,
+      accountId: transection.accountId,
+      currencyId: transection.currencyId,
+      currencyName: transection.Currency?.dataValues.name || null,
+      currencySymbol: transection.Currency?.dataValues.symbol || null,
+      fiatCurrencyId: transection.fiatCurrencyId,
+      fiatCurrencyName: transection.FiatCurrency?.dataValues.name || null,
+      fiatCurrencySymbol: transection.FiatCurrency?.dataValues.symbol || null,
+      price: transection.price,
+      quantity: transection.quantity,
+      status: transection.status,
+      orderType: transection.orderType,
+      createdAt: dateFormat.convertTimestampToDateTime(transection.createdAt),
+      updatedAt: dateFormat.convertTimestampToDateTime(transection.updatedAt),
+    }))
     return res
       .status(200)
-      .json({ message: "Transections retrieved successfully", transections });
+      .json({ message: "Transections retrieved successfully", result });
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "Error retrieving transections", error });
+      .json({ message: "Error retrieving transections", error : error.message });
   }
 };
 
 exports.GetTransectionsByAccountID = async (req, res) => {
   try {
     const { id } = req.params;
+    
     const transactions = await GetTransectionsByAccountID(id);
     if (!transactions)
       throw new Error("Error retrieving transactions by account id");
-
+    
+    const result = transactions.map((transection) => ({
+      id: transection.id,
+      accountId: transection.accountId,
+      currencyId: transection.currencyId,
+      currencyName: transection.Currency?.dataValues.name || null,
+      currencySymbol: transection.Currency?.dataValues.symbol || null,
+      fiatCurrencyId: transection.fiatCurrencyId,
+      fiatCurrencyName: transection.FiatCurrency?.dataValues.name || null,
+      fiatCurrencySymbol: transection.FiatCurrency?.dataValues.symbol || null,
+      price: transection.price,
+      quantity: transection.quantity,
+      status: transection.status,
+      orderType: transection.orderType,
+      createdAt: dateFormat.convertTimestampToDateTime(transection.createdAt),
+      updatedAt: dateFormat.convertTimestampToDateTime(transection.updatedAt),
+    }))
+    
     return res
       .status(200)
-      .json({ message: "Transactions retrieved successfully", transactions });
+      .json({ message: "Transactions retrieved successfully", result });
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "Error retrieving transactions by account id", error });
+      .json({ message: "Error retrieving transactions by account id", error : error.message });
   }
 };
 
@@ -51,13 +88,29 @@ exports.GetTransectionsByUserID = async (req, res) => {
     if (!transactions)
       throw new Error("Error retrieving transactions by user id");
 
+    const result = transactions.map((transection) => ({
+      id: transection.id,
+      accountId: transection.accountId,
+      currencyId: transection.currencyId,
+      currencyName: transection.Currency?.dataValues.name || null,
+      currencySymbol: transection.Currency?.dataValues.symbol || null,
+      fiatCurrencyId: transection.fiatCurrencyId,
+      fiatCurrencyName: transection.FiatCurrency?.dataValues.name || null,
+      fiatCurrencySymbol: transection.FiatCurrency?.dataValues.symbol || null,
+      price: transection.price,
+      quantity: transection.quantity,
+      status: transection.status,
+      orderType: transection.orderType,
+      createdAt: dateFormat.convertTimestampToDateTime(transection.createdAt),
+      updatedAt: dateFormat.convertTimestampToDateTime(transection.updatedAt),
+    }))
     return res
       .status(200)
-      .json({ message: "Transactions retrieved successfully", transactions });
+      .json({ message: "Transactions retrieved successfully", result });
   } catch (error) {
     return res
       .status(500)
-      .json({ message: "Error retrieving transactions by user id", error });
+      .json({ message: "Error retrieving transactions by user id", error: message });
   }
 };
 
@@ -93,7 +146,7 @@ exports.DeleteTransectionbyUserID = async (req, res) => {
   }
 };
 
-exports.GetTransectionsByAccountID = async (req, res) => {
+exports.DeleteTransectionbyAccountID = async (req, res) => {
   try {
     const { id } = req.params;
     const transactions = await DeleteTransectionbyAccountID(id);

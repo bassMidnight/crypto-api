@@ -1,20 +1,43 @@
 const { Op } = require("sequelize");
-const { Transaction } = require("../models");
+const { Transaction, Account, User, Currency, FiatCurrency } = require("../models");
 
 exports.GetAllTransections = async (status, offset, limit) => {
     const transection = await Transaction.findAll({
+        include : [
+            {
+                model: Account
+            },
+            {
+                model: Currency
+            },
+            {
+                model: FiatCurrency
+            }
+        ],
         where: {
             status: status
         },
         offset,
         limit
     });
+    
     if(!transection) return null;
     return transection;
 }
 
 exports.GetTransectionsByAccountID = async (id) => {
     const transection = await Transaction.findAll({
+        include : [
+            {
+                model: Account,
+            },
+            {
+                model: Currency,
+            },
+            {
+                model: FiatCurrency,
+            }
+        ],
         where: {
             accountId: id
         }
@@ -28,15 +51,25 @@ exports.GetTransectionsByUserID = async (id) => {
         include : [
             {
                 model: Account,
+                required: true,
                 include : [
                     {
                         model: User,
+                        required: true,
                         where: {
                             id: id
                         }
                     }
                 ]
             },
+            {
+                model: Currency,
+                required: true,
+            },
+            {
+                model: FiatCurrency,
+                required: true,
+            }
         ]
     });
     if(!transection) return null;
