@@ -11,6 +11,17 @@ exports.FindAllFiatCurrencies = async (offset, limit) => {
     }
 }
 
+exports.FindFiatcurrencyId = async (id) => {
+    try {
+        const currencies = await FiatCurrency.findByPk(id);
+        if (!currencies) throw new Error('Error finding fiatcurrencies');
+        return currencies;
+    } catch (error) {
+        console.log("Error finding currencies:", error.message);
+        return null;
+    }
+}
+
 exports.UpdateFiatCurrency = async (id, data) => {
     try {
         const currency = await FiatCurrency.update(data, { where: { id } });

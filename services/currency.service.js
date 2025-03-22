@@ -1,5 +1,16 @@
 const { Currency } = require("../models/index.js");
 
+exports.FindCurrencyByPk = async (id) => {
+    try {
+        const currency = await Currency.findByPk(id);
+        if (!currency) throw new Error('Error finding currency');
+        return currency;
+    } catch (error) {
+        console.log("Error finding currency:", error.message);
+        return null;
+    }
+}
+
 exports.FindAllCurrencies = async (offset, limit) => {
     try {
         const currencies = await Currency.findAll({ offset, limit });

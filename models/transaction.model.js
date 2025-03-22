@@ -15,12 +15,12 @@ const Transaction = sequelize.define(
     },
     senderId: {
       type: DataTypes.UUID,
-      references: { model: User, key: "id" },
+      references: { model: Account, key: "id" },
       allowNull: true,
     },
     receiverId: {
       type: DataTypes.UUID,
-      references: { model: User, key: "id" },
+      references: { model: Account, key: "id" },
       allowNull: true,
     },
     accountId: {
@@ -28,7 +28,9 @@ const Transaction = sequelize.define(
       references: { model: Account, key: "id" },
       allowNull: false,
     },
-    amount: { type: DataTypes.DECIMAL(18, 8), allowNull: false },
+    amount: { type: DataTypes.DECIMAL(18, 8), allowNull: true },
+    price: { type: DataTypes.DECIMAL(18, 8), allowNull: true },
+    totalAmount: { type: DataTypes.DECIMAL(18, 8), allowNull: true },
     type: {
       type: DataTypes.ENUM("DEPOSIT", "WITHDRAWAL", "TRANSFER", "TRADE"),
       allowNull: false,

@@ -22,6 +22,6 @@ router.delete("/:id", DeleteAccount);
 
 router.post("/deposit/", DespositAccount);
 router.post("/withdraw/", WithdrawAccount);
-router.post("transfer/", TransferAccount);
+router.post("/transfer/", TransferAccount);
 
 module.exports = router;
