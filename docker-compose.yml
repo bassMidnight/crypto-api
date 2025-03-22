@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mysql:8
+    restart: always
+    container_name: mysql_db
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: >
+      bash -c "docker-entrypoint.sh mysqld &
+               sleep 10 && 
+               mysql -u root -p${DB_PASSWORD} -e 'CREATE DATABASE IF NOT EXISTS ${DB_NAME};' && 
+               tail -f /dev/null"
+
+  app:
+    build: .
+    container_name: crypto_api
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_NAME=${DB_NAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - PORT=3306
+      - DIALECT=mysql
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - "4000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules/
+    command: >
+      sh -c "npm install && npm start"
+
+volumes:
+  mysql_data:

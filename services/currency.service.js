@@ -1,5 +1,16 @@
 const { Currency } = require("../models/index.js");
 
+exports.FindCurrencyByPk = async (id) => {
+    try {
+        const currency = await Currency.findByPk(id);
+        if (!currency) throw new Error('Error finding currency');
+        return currency;
+    } catch (error) {
+        console.log("Error finding currency:", error.message);
+        return null;
+    }
+}
+
 exports.FindAllCurrencies = async (offset, limit) => {
     try {
         const currencies = await Currency.findAll({ offset, limit });
@@ -7,26 +18,6 @@ exports.FindAllCurrencies = async (offset, limit) => {
         return currencies;
     } catch (error) {
         console.log("Error finding currencies:", error.message);
-        return null;
-    }
-}
-
-exports.UpdateCurrency = async (id, data) => {
-    try {
-        const currency = await Currency.update(data, { where: { id } });
-        return currency;
-    } catch (error) {
-        console.error("Error updating currency:", error.message);
-        return null;
-    }
-}
-
-exports.DeleteCurrency = async (id) => {
-    try {
-        const currency = await Currency.destroy({ where: { id } });
-        return currency;
-    } catch (error) {
-        console.error("Error deleting currency:", error.message);
         return null;
     }
 }
@@ -47,6 +38,16 @@ exports.UpdateCurrency = async (id, data) => {
         return currency;
     } catch (error) {
         console.error("Error updating currency:", error.message);
+        return null;
+    }
+}
+
+exports.DeleteCurrency = async (id) => {
+    try {
+        const currency = await Currency.destroy({ where: { id } });
+        return currency;
+    } catch (error) {
+        console.error("Error deleting currency:", error.message);
         return null;
     }
 }
